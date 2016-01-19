@@ -2,7 +2,7 @@
 title: "Using Machine Learning to Determine Exercise Type"
 author: "Paul Cappa"
 date: "January 18, 2016"
-output: html_document
+output: pdf_document
 ---
 
 # 1. Synopsis
@@ -204,7 +204,7 @@ abline(min(val), 0, lty=lty, lwd=lwd, col=col)
 It appears *Random Forest* is quite similar to the *Validation* data, whereas, *Recursive Partitioning* and *Generalized Boosting* are quite different.  Now let's look at the model accuracies.
 
 ```{r, echo=FALSE}
-accuracy.results <- cat("Accuracies for:",
+cat("Accuracies for:",
 	"\n    Random Forest:          ", round(val.rf.Matrix$overall[1],4)*100, "%",
 	"\n    Recursive Partitioning: ", round(val.rpart.Matrix$overall[1],4)*100, "%",
 	"\n    Generalized Boosting:   ", round(val.gbm.Matrix$overall[1],4)*100, "%",
@@ -212,6 +212,18 @@ accuracy.results <- cat("Accuracies for:",
 ```
 
 Our numbers confirm our visual interpretation.
+
+## 3.5 Out of Sample Error Rate
+
+The out of sample error rate for each model is calculated below:
+
+```{r, echo=FALSE}
+cat("Out of Sample Error Rate for:",
+	"\n    Random Forest:          ", round((1-val.rf.Matrix$overall[1])*100,2),"%",
+	"\n    Recursive Partitioning: ", round((1-val.rpart.Matrix$overall[1])*100,2),"%",
+	"\n    Generalized Boosting:   ", round((1-val.gbm.Matrix$overall[1])*100,2),"%",
+	sep="")
+```
 
 # 4. Shall We Take a Vote?
 
