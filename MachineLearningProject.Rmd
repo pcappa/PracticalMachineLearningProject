@@ -44,8 +44,8 @@ set.seed(9807)
 ```
 
 ```{r, echo=FALSE}
-prefix <- "h:"
-# prefix <- "c:\\Users\\Paul"
+# prefix <- "h:"
+prefix <- "c:\\Users\\Paul"
 setwd(paste0(prefix, "\\OneDrive\\MyLife\\Courses\\Johns Hopkins Data Analytics\\08 Practical Machine Learning\\Project"))
 ```
 
